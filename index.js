@@ -56,6 +56,8 @@ app.post('/runAssistant', async (req, res) => {
   if (!body.sThread) {
     let oThread = await openai.beta.threads.create();
     sThread = oThread.id;
+  } else {
+    sThread = body.sThread;
   }
 
   // Add a message to the thread
